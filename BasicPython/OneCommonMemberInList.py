@@ -14,12 +14,8 @@ for i in a:
         print("result:",False)
 
 #Method2
-
-def common(a, b):
-    result = False
-    for x in a:
-        for y in b:
-            if x == y:
-                result = True
-                return result
-print("Result:",common([1,2,4,5,6],[5,6,7,8,9]))
+def overlap(a,b):
+    for i in a:
+        for j in b:
+            return i==j
+print("Result is:",overlap([1,2,4,5,6],[5,6,7,8,9 ]))
