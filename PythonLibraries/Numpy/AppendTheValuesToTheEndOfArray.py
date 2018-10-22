@@ -14,3 +14,4 @@ x=np.append(x,[[40,50,60],[70,80,90]])
 print(x)
 
 print(type(x))
+
