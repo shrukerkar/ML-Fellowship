@@ -7,7 +7,7 @@
 
 import numpy as np
 
-x=np.array([1,2,3,4],dtype=np.float)
+x=np.array([1,2,3],dtype=np.float)
 print(x)
 print("Size of array:",x.size)
 print("Length of one array element in bytes:",x.itemsize)
