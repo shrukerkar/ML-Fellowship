@@ -17,3 +17,6 @@ labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
 df=pd.DataFrame(exam_data,index=labels)
 print(df)
+
+print(" number of attempts in the examination greater than 2 are:")
+print(df[df['attempts'] >2])
