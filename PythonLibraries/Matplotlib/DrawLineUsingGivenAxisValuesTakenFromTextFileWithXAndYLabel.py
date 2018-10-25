@@ -10,8 +10,7 @@
 import matplotlib.pyplot as plt
 
 with open("/home/shruti/test.txt") as f:
-    data=f.read()
-
+    data = f.read()
 data=data.split('\n')
 
 x = [row.split(' ')[0] for row in data]
