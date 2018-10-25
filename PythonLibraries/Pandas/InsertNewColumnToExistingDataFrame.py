@@ -26,3 +26,4 @@ colours=['red','black','blue','orange','pink','green','white','purple','magenta'
 df['colours']=colours
 print("Adding Colours column to Original DataFrame:")
 print(df)
+
