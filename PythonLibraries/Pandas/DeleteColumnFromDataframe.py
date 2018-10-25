@@ -17,10 +17,12 @@ exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Micha
 labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
 df=pd.DataFrame(exam_data,index=labels)
+print("Original Dataframe:")
 print(df)
 
 #df.drop("attempts",axis=1,inplace=True)
 
 df.pop('attempts')
+print("Deleted 'attempts' column from DataFrame:")
 print(df)
 
