@@ -1,5 +1,5 @@
 
-# Write a Python program to replace the 'qualify' column contains the values 'yes' and 'no' with True and False.
+#Write a Python program to delete the 'attempts' column from the DataFrame.
 #exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
 #'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
 #'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
@@ -19,6 +19,8 @@ labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 df=pd.DataFrame(exam_data,index=labels)
 print(df)
 
-df['qualify'] = df['qualify'].map({'yes': True, 'no': False})
+#df.drop("attempts",axis=1,inplace=True)
+
+df.pop('attempts')
 print(df)
 
