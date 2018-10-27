@@ -28,14 +28,4 @@ ax.set_xlabel('popularity')
 ax.set_title('BarChartHorizontal')
 plt.show()
 
-#x=[i for i,_ in enumerate(programming_languages)]
-#plt.bar(x,popularity,color='blue')
-#plt.xlabel("languages")
-#plt.ylabel("popularity")
-#plt.title("Popularity Of Programming Languages:")
 
-#plt.yticks(x,programming_languages)
-#plt.minorticks_on()
-#plt.grid(which='major',linestyle='-',linewidth='0.5',color='red')
-#plt.grid(which='minor',linestyle=':',linewidth='0.5',color='black')
-#plt.show()
