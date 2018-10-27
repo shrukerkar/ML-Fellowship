@@ -13,6 +13,7 @@ x=[i for i,_ in enumerate(programming_languages)]
 y_pos=[0,1,4,7,9,10]
 
 plt.bar(y_pos,popularity,color=[0.4,0.6,0.8,1.0],edgecolor='blue')
+
 plt.xlabel("languages")
 plt.ylabel("popularity")
 plt.title("Popularity Of Programming Languages:")
