@@ -25,7 +25,7 @@ names=sorted(numbers[0].keys())
 
 
 values = np.array([[data[name] for name in order] for data,order in zip(numbers,languages)
-lefts =np.insert((np.cumsum(values, axis=1),0,0, axis=1)[:, :-1])
+lefts =np.insert(np.cumsum(values, axis=1),0,0, axis=1)[:, :-1]
 orders = np.array(languages)
 bottoms = np.arange(len(languages))
 
@@ -33,8 +33,7 @@ for name, color in zip(names, color):
 	idx = np.where(orders == name)
 	value = values[idx]
 	left = lefts[idx]
-	plt.bar(left=left, height=0.8, width=value, bottom=bottoms,
-	color=color, orientation="horizontal", label=name)
+	plt.bar(left=left, height=0.8, width=value, bottom=bottoms,color=color, orientation="horizontal", label=name)
 plt.yticks(bottoms+0.4, ["Student-%d" % (t+1) for t in bottoms])
 plt.legend(loc="best", bbox_to_anchor=(1.0, 1.00))
 plt.subplots_adjust(right=0.75)
