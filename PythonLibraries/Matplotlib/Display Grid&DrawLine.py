@@ -11,13 +11,17 @@
 import matplotlib.pyplot  as plt
 import pandas as pd
 
-df=pd.read_csv("/home/shruti/fdata.csv")
-#print(df)
+
+df=pd.read_csv("/home/shruti/fdata.csv",index_col=0)
+
+print(df.head())
+
+
 #df.hist()
 
-plt.bar(df['Open'],df['High'])
-plt.xlabel("Open")
-plt.ylabel("High")
-plt.title("coloumn chart")
-plt.show()
+#plt.bar(df['Open'],df['High'])
+#plt.xlabel("Open")
+#plt.ylabel("High")
+#plt.title("coloumn chart")
+#plt.show()
 
