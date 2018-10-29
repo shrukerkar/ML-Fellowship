@@ -7,7 +7,7 @@ import numpy as np
 x=np.random.rand(10)
 y=np.random.rand(10)
 
-plt.scatter(x,y,color='r')
+plt.scatter(x,y,facecolor='none',s=70,edgecolors='g')
 
 plt.xlabel('x axis')
 plt.ylabel('y axis')
