@@ -1,15 +1,16 @@
 
-#Write a Python program to draw a scatter plot with empty circles taking a random distribution in X and Y and plotted against each other.
+#Write a Python program to draw a scatter plot using random distributions to generate balls of different sizes.
+import random
 
 import matplotlib.pyplot as plt
 import numpy as np
+x = np.random.randn(50)
+y = np.random.randn(50)
+plt.scatter(x, y, s=70, facecolors='none', edgecolors='g')
 
-x=np.random.rand(10)
-y=np.random.rand(10)
-
-plt.scatter(x,y,facecolor='none',s=70,edgecolors='g')
 
 plt.xlabel('x axis')
 plt.ylabel('y axis')
 plt.title('scatter plot')
 plt.show()
+
