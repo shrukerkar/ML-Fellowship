@@ -14,3 +14,4 @@ x=sns.factorplot("class","survived","sex",data=titanic,kind="bar",size=6,palette
 x.set(yscale="log")
 plt.show()
 
+
