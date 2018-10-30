@@ -12,6 +12,6 @@ df=pd.read_csv(data_url)
 
 print(df.head())
 
-x=sns.barplot(x="continent",y="lifeExp",data=df)
+x=sns.boxplot(x="continent",y="lifeExp",data=df)
 
 plt.show()
