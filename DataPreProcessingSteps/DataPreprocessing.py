@@ -11,12 +11,16 @@ import numpy as np
 
 
 
+
 #Read Data
 data_url="/home/shruti/Downloads/data_preprocessing.csv"
 
 df=pd.read_csv(data_url)
 
-print(df)
+print(df.shape)
+
+#X=df.iloc[:,:-1].values
+#y=df.iloc[:,3].values
 
 #Handling Missing Data
 #1.Find number of Nan in data
@@ -52,13 +56,33 @@ df['Country']=df['Country'].map(class_mapping)
 print(df)
 
 #Onehotencoder
-onehot_encoded=list()
-for value in class_mapping:
-    num=[0 for _ in range(len(df['Country']))]
-    num[value]=1
-    onehot_encoded.append(num)
-print(onehot_encoded)
+obj_df=df.select_dtypes(include=['object']).copy()
+print(obj_df.head())
+#print(obj_df.dtypes)
+
+obj_df['Country']=obj_df['Country'].astype('category')
+print(obj_df.dtypes)
+
+print(pd.get_dummies(obj_df,columns=['Country']).head())
+
+
 
 #5.Split data set into training and test set
 
+train_data=df[0:8]
+
+print(train_data)
+
+test_data=df[8:]
+
+print(test_data)
+
+#from sklearn.model_selection import train_test_split
+
+#X_train,X_test,y_train,y_test= train_test_split(X,y,test_size=0.20)
+
+#print(X_train)
+#print(X_test)
+
+#6.Feature Scaling
 
