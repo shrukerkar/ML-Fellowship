@@ -56,13 +56,23 @@ for i in range(n):
 rmse = np.sqrt(rmse/n)
 print(rmse)
 
+ss_r=0
+ss_t=0
+mean_y=np.mean(y_test)
+for i in range(n):
+    y_pred=b0+b1*x_test
+    ss_t+=(y_test-mean_y)**2
+    ss_r+=(y_test-y_pred)**2
+r2_score=1-(ss_r/ss_t)
+print(r2_score)
+
 # ploting x_test and y_test
 y_plot=[]
 for i in range(100):
       y_plot.append(b0+b1*i)
 plt.figure(figsize=(10,10))
-plt.scatter(x_test,y_test,color='red',label="GT")
-plt.plot(range(len(y_plot),y_plot,color='black',label='pred'))
+plt.scatter(x_train,y_train,color='red',label="GT")
+plt.plot(range(len(y_plot)),y_plot,color='black',label='pred')
 plt.legend()
 plt.show()
 
