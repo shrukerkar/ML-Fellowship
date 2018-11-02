@@ -5,75 +5,68 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 #Read data set
 df_train=pd.read_csv("/home/shruti/Downloads/simple-linear-regression/train.csv")
 df_test=pd.read_csv("/home/shruti/Downloads/simple-linear-regression/test.csv")
 
+# Train test split
+x_train=np.array(df_train['x'])
+y_train=np.array(df_train['y'])
+x_test=np.array(df_test['x'])
+y_test=np.array(df_test['y'])
 
-# Prints first 5 records
-print(df_train.head())
-print(df_test.head())
-# prints shape of data
-print(df_train.shape)
-print(df_test.shape)
-# Dataset information
-print(df_train.info())
-print(df_test.info())
-
-# Describe dataset
-print(df_train.describe())
-print(df_test.describe())
-#Print columns
-print(df_train.columns)
-print(df_test.columns)
-
-#sns.pairplot(df)
-#sns.distplot(df['x'])
-#plt.show()
+print(x_train)
+print(y_test)
+print(x_test)
+print(y_test)
 
 
-#Collecting X and Y
-X=df_train['x']
-print(X)
-Y=df_train['y']
-print(Y)
+x_train=x_train.reshape(-1,1)
+print(x_train)
+x_test=x_test.reshape(-1,1)
+print(x_test)
 
-# mean X and Y
-x_mean=np.mean(X)
-print(x_mean)
-y_mean=np.mean(Y)
-print(y_mean)
+# total number of training examples and learning rate
 
-#Total number of values
+n=len(x_train)
+alpha=0.0001
 
-m=len(X)
-print(m)
+# defining b0 and b1
+b0=np.zeros((n,1))
+b1=np.zeros((n,1))
 
-numerator=0
-denominator=0
+iter=0
 
-for i in range (m):
-    numerator=(X[i]-x_mean)*(Y[i]-y_mean)
-    denominator=(X[i]-x_mean)**2
+while(iter<1000):
+    y=b0+b1*x_train
+    error=y-y_train
+    mean_sqaure_error=np.sum(error**2)
+    mean_sqaure_error=mean_sqaure_error/n
+    b0=b0-alpha*2*np.sum(error)/n
+    b1=b1-alpha*2*np.sum(error*x_train)/n
+    iter+=1
+    if(iter%10==0):
+        print(mean_sqaure_error)
+# Calculating R2 Score
+rmse = 0
+for i in range(n):
+    y_pred = b0 + b1 * x_test
+    rmse += (y_test - y_pred) ** 2
+rmse = np.sqrt(rmse/n)
+print(rmse)
 
-b1=numerator/denominator
-b0=y_mean-(b1*x_mean)
-print(b1,b0)
-
-
-x_max=np.max(X)
-x_min=np.min(X)
-
-x=np.linspace(x_min,x_max,1000)
-y=b0+b1*x
-
-plt.plot(x,y,color='r',label='regression line')
-plt.plot(X,Y,c='g',label='scatter plot')
+# ploting x_test and y_test
+y_plot=[]
+for i in range(100):
+      y_plot.append(b0+b1*i)
+plt.figure(figsize=(10,10))
+plt.scatter(x_test,y_test,color='red',label="GT")
+plt.plot(range(len(y_plot),y_plot,color='black',label='pred'))
 plt.legend()
 plt.show()
 
-rmse=0
-for i in range(m):
-    y_pred=b0+b1*X[i]
+
+
+
+
