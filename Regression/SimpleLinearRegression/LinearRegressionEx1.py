@@ -36,19 +36,8 @@ alpha=0.0001
 b0=np.zeros((n,1))
 b1=np.zeros((n,1))
 
-iter=0
-
-while(iter<1000):
-    y=b0+b1*x_train
-    error=y-y_train
-    mean_sqaure_error=np.sum(error**2)
-    mean_sqaure_error=mean_sqaure_error/n
-    b0=b0-alpha*2*np.sum(error)/n
-    b1=b1-alpha*2*np.sum(error*x_train)/n
-    iter+=1
-    if(iter%10==0):
-        print(mean_sqaure_error)
 # Calculating R2 Score
+
 rmse = 0
 for i in range(n):
     y_pred = b0 + b1 * x_test
@@ -65,6 +54,21 @@ for i in range(n):
     ss_r+=(y_test-y_pred)**2
 r2_score=1-(ss_r/ss_t)
 print(r2_score)
+
+
+
+iter=0
+
+while(iter<1000):
+    y=b0+b1*x_train
+    error=y-y_train
+    mean_sqaure_error=np.sum(error**2)
+    mean_sqaure_error=mean_sqaure_error/n
+    b0=b0-alpha*2*np.sum(error)/n
+    b1=b1-alpha*2*np.sum(error*x_train)/n
+    iter+=1
+    if(iter%10==0):
+        print(mean_sqaure_error)
 
 # ploting x_test and y_test
 y_plot=[]
