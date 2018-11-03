@@ -47,6 +47,7 @@ print(rmse)
 
 ss_r=0
 ss_t=0
+
 mean_y=np.mean(y_test)
 for i in range(n):
     y_pred=b0+b1*x_test
@@ -54,7 +55,6 @@ for i in range(n):
     ss_r+=(y_test-y_pred)**2
 r2_score=1-(ss_r/ss_t)
 print(r2_score)
-
 
 
 iter=0

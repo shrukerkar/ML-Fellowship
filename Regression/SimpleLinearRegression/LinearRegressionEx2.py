@@ -20,3 +20,30 @@ print(data_set.corr())
 
 sns.regplot(x=data_set["Temperature (C)"],y=data_set["Humidity"])
 plt.show()
+sns.regplot(x=data_set["Temperature (C)"], y=data_set["Apparent Temperature (C)"])
+plt.show()
+
+#Remove Outliers in dataset
+
+outliers=[]
+def dect_outlier(data):
+    limit=3
+    mean=np.mean(data)
+    std=np.std(data)
+    for i in data:
+        z_score=(i-mean)/std
+        if np.abs(z_score)>limit:
+            outliers.append(i)
+    return outliers
+outlier_data=dect_outlier(data_set["Humidity"])
+print(outlier_data)
+
+final_data_set=data_set[data_set["Humidity"]>0.15]
+print(final_data_set)
+
+sns.regplot(x=final_data_set["Temperature (C)"],y=final_data_set["Humidity"])
+plt.show()
+
+
+final_data_set=data_set[data_set["Humidity"]<=0.15]
+print(final_data_set)
