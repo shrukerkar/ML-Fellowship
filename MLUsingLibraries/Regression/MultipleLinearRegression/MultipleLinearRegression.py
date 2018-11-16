@@ -9,9 +9,6 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import seaborn as sns
-from sklearn import metrics
-import math
-import statsmodels.api as sm
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 
@@ -75,20 +72,5 @@ print(y_pred)
 #R square score for dataset
 print(regressor.score(X,y))
 
-#RMSE error
-#print(math.sqrt(metrics.mean_squared_error(y_test,y_pred)))
 
-#Ordinary least sqaure method
-#ones_1=[1]*X.count()
-#X["b0"]=ones_1
-
-#model=sm.OLS(y_pred,X_test).fit()
-#print(model.summary())
-
-
-
-#Scatter plot
-#plt.scatter(X_test,y_test,label='Test Data')
-#plt.plot(X_test,y_pred,label='Prediction')
-# plt.show()
 
