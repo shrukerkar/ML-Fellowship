@@ -16,13 +16,44 @@ data=pd.read_csv("/home/shruti/Downloads/bank.csv",sep=";")
 print(data.head())
 print(data.shape)
 
-
+#Number of columns
 print(data.columns.values)
 
+#Sum Of null values
 print(data.isnull().sum())
 
+#Visualization
 sns.countplot(y="job",data=data)
 plt.show()
+
+sns.countplot(x="marital",data=data)
+plt.show()
+
+sns.countplot(x="default",data=data)
+plt.show()
+
+sns.countplot(x="housing",data=data)
+plt.show()
+
+sns.countplot(x="poutcome",data=data)
+plt.show()
+
+sns.countplot(x="y",data=data)
+plt.show()
+
+sns.countplot(x="age",data=data)
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
