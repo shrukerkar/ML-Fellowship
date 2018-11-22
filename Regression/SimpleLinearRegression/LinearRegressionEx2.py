@@ -73,13 +73,13 @@ def gradient_descent():
             dw +=((b+w*X_train[j])-y_train[j])*X_train[j]
         b= b-((alpha*db)/m)
         w= w-((alpha*dw)/m)
-        i+=1
+        i+=1 
     for i in range(len(X_test)):
         y_pred=(b+w*X_test)
         y_pred=float(str(y_pred)[0:3])
-    print("Accuracy",avgerror(np.asarray(y_pred)),type(y_pred))
+    print("Accuracy",error(np.asarray(y_pred)),type(y_pred))
 
-def avgerror(y_pred_test):
+def error(y_pred_test):
     total_error=0
     for i in range(0,len(y_test)):
         total_error+=abs((y_pred_test[i] - y_test[i])/y_test[i])
@@ -88,11 +88,11 @@ def avgerror(y_pred_test):
     return accuracy * 100
 
 
-def graph(y_pred):
-    plt.scatter(X_test, y_test, color='g', label='whole data')
-    plt.plot(X_test, y_pred, color='r', label='predicted value')
-    plt.legend()
-    plt.show()
+
+plt.scatter(X_test, y_test, color='g', label='whole data')
+plt.plot(X_test, y_pred, color='r', label='predicted value')
+plt.legend()
+plt.show()
 
 if __name__=='__main__':
 
