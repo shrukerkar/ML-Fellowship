@@ -28,7 +28,7 @@ linear_model=LinearRegression()
 linear_model.fit(X,y)
 predict=linear_model.predict(X)
 
-polynomial_model=PolynomialFeatures(degree=2)
+polynomial_model=PolynomialFeatures(degree=4)
 X_poly=polynomial_model.fit_transform(X)
 print(X_poly)
 polynomial_model.fit(X_poly,y)
