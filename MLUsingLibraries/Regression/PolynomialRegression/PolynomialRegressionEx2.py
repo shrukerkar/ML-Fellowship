@@ -36,45 +36,54 @@ print(y.shape)
 
 
 #Split data into training and test set
-X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=0)
-print(X_train.shape)
-print(X_test.shape)
-print(y_train.shape)
-print(y_test.shape)
+#X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=0)
+#print(X_train.shape)
+#print(X_test.shape)
+#print(y_train.shape)
+#print(y_test.shape)
 
 #Fit traing data
+poly=PolynomialFeatures(degree=3)
+poly_x=poly.fit_transform(X)
+
 
 regressor=LinearRegression()
-print(regressor.fit(X_train,y_train))
+regressor.fit(poly_x,y)
 
-y_pred=regressor.predict(X_test)
-print(y_pred)
 
-polynomial_model=PolynomialFeatures(degree=4)
-X_poly=polynomial_model.fit_transform(X_train)
-print(X_poly)
 
-polynomial_model.fit(X_poly,y_train)
+#y_pred=regressor.predict(X_test)
+#print(y_pred)
 
-linear_model2=LinearRegression()
-linear_model2.fit(X_poly,y_train)
+#polynomial_model=PolynomialFeatures(degree=4)
+#X_poly=polynomial_model.fit_transform(X_train)
+#print(X_poly)
 
-prediction=linear_model2.predict(X_poly)
+#polynomial_model.fit(X_poly,y_train)
 
-plt.scatter(X_train,y_train,color='red')
-plt.scatter(X,y_pred,color='blue')
-plt.title("Linear regression")
-plt.xlabel("X-axis")
-plt.ylabel("Y-axis")
+#linear_model2=LinearRegression()
+#linear_model2.fit(X_poly,y_train)
+
+#prediction=linear_model2.predict(X_poly)
+
+
+#Scatter plot
+
+#plt.scatter(X_train,y_train,color='red')
+#plt.scatter(X,y_pred,color='blue')
+#plt.title("Linear regression")
+#plt.xlabel("X-axis")
+#plt.ylabel("Y-axis")
+#plt.show()
+
+#plt.scatter(X_train,y_test,color='blue')
+#plt.scatter(X,prediction,color='red')
+#plt.title("Polynomial Regression")
+#plt.xlabel("X-axis")
+#plt.ylabel("Y-axis")
+#plt.show()
+
+
+plt.scatter(X,y,color='red')
+plt.plot(X,regressor.predict(poly.fit_transform(X)),color='blue')
 plt.show()
-
-plt.scatter(X_train,y_test,color='blue')
-plt.scatter(X,prediction,color='red')
-plt.title("Polynomial Regression")
-plt.xlabel("X-axis")
-plt.ylabel("Y-axis")
-plt.show()
-
-
-
-
